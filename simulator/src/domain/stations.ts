@@ -1,0 +1,218 @@
+import type { Station } from "./contracts.js";
+
+/**
+ * Catalogo de estaciones meteorologicas de la zona de estudio: Santa Marta
+ * (Magdalena, Colombia). Estan distribuidas siguiendo el gradiente de la
+ * cuenca del rio Manzanares (cabecera en la Sierra Nevada -> rural -> urbano
+ * -> desembocadura), la cuenca vecina del rio Gaira y rios del norte, cauces
+ * senalados por el IDEAM como vulnerables a crecientes subitas.
+ *
+ * Respaldo: "Sistema de Informacion para Deteccion de Crecientes Subitas en la
+ * Cuenca del Rio Manzanares en Santa Marta, Colombia" (SciELO, 2017), sistema
+ * de alerta temprana con precipitacion, humedad de suelo y nivel de rio.
+ * Coordenadas aproximadas de sitios reales; altitud en metros.
+ */
+export const STATIONS: Station[] = [
+  // --- Cuenca del río Manzanares (aguas arriba -> desembocadura) ---
+  {
+    id: "cerro-kennedy",
+    name: "Cerro Kennedy / San Lorenzo",
+    basin: "Manzanares",
+    zone: "Cabecera Sierra Nevada",
+    lat: 11.11,
+    lon: -74.05,
+    alt: 2300,
+  },
+  {
+    id: "paso-del-mango",
+    name: "Paso del Mango (Masinga)",
+    basin: "Manzanares",
+    zone: "Alto rural",
+    lat: 11.15,
+    lon: -74.07,
+    alt: 500,
+  },
+  {
+    id: "matogiro",
+    name: "Matogiro",
+    basin: "Manzanares",
+    zone: "Medio rural",
+    lat: 11.21,
+    lon: -74.12,
+    alt: 120,
+  },
+  {
+    id: "bonda",
+    name: "Bonda",
+    basin: "Manzanares",
+    zone: "Valle rural",
+    lat: 11.23,
+    lon: -74.1,
+    alt: 60,
+  },
+  {
+    id: "quinta-san-pedro-alejandrino",
+    name: "Quinta de San Pedro Alejandrino",
+    basin: "Manzanares",
+    zone: "Entrada urbana",
+    lat: 11.2225,
+    lon: -74.183,
+    alt: 25,
+  },
+  {
+    id: "mamatoco",
+    name: "Mamatoco",
+    basin: "Manzanares",
+    zone: "Medio urbano",
+    lat: 11.234,
+    lon: -74.183,
+    alt: 20,
+  },
+  {
+    id: "la-teneria",
+    name: "La Teneria",
+    basin: "Manzanares",
+    zone: "Urbano",
+    lat: 11.23,
+    lon: -74.19,
+    alt: 12,
+  },
+  {
+    id: "barrio-manzanares",
+    name: "Barrio Manzanares",
+    basin: "Manzanares",
+    zone: "Bajo urbano",
+    lat: 11.228,
+    lon: -74.195,
+    alt: 10,
+  },
+  {
+    id: "desembocadura-los-cocos",
+    name: "Desembocadura Los Cocos",
+    basin: "Manzanares",
+    zone: "Desembocadura",
+    lat: 11.245,
+    lon: -74.213,
+    alt: 1,
+  },
+  // --- Casco urbano y costa norte ---
+  {
+    id: "centro-historico",
+    name: "Centro Historico",
+    basin: "Urbano",
+    zone: "Bahia",
+    lat: 11.244,
+    lon: -74.205,
+    alt: 3,
+  },
+  {
+    id: "pescaito",
+    name: "Pescaito",
+    basin: "Urbano",
+    zone: "Norte",
+    lat: 11.251,
+    lon: -74.211,
+    alt: 3,
+  },
+  {
+    id: "bastidas",
+    name: "Bastidas",
+    basin: "Urbano",
+    zone: "Norte",
+    lat: 11.256,
+    lon: -74.198,
+    alt: 15,
+  },
+  {
+    id: "taganga",
+    name: "Taganga",
+    basin: "Costera",
+    zone: "Costa norte",
+    lat: 11.267,
+    lon: -74.192,
+    alt: 10,
+  },
+  {
+    id: "ciudad-equidad",
+    name: "Ciudad Equidad",
+    basin: "Urbano",
+    zone: "Sur - expansion urbana",
+    lat: 11.17,
+    lon: -74.18,
+    alt: 30,
+  },
+  // --- Cuenca del rio Gaira ---
+  {
+    id: "gaira",
+    name: "Gaira",
+    basin: "Gaira",
+    zone: "Bajo urbano",
+    lat: 11.187,
+    lon: -74.216,
+    alt: 8,
+  },
+  {
+    id: "el-rodadero",
+    name: "El Rodadero",
+    basin: "Gaira",
+    zone: "Costa sur",
+    lat: 11.202,
+    lon: -74.228,
+    alt: 3,
+  },
+  {
+    id: "maria-eugenia",
+    name: "Maria Eugenia",
+    basin: "Gaira",
+    zone: "Ladera",
+    lat: 11.2,
+    lon: -74.21,
+    alt: 40,
+  },
+  {
+    id: "minca",
+    name: "Minca",
+    basin: "Gaira",
+    zone: "Alto rural",
+    lat: 11.1417,
+    lon: -74.1156,
+    alt: 640,
+  },
+  {
+    id: "aeropuerto-simon-bolivar",
+    name: "Aeropuerto Simon Bolivar",
+    basin: "Gaira",
+    zone: "Sur (estacion IDEAM)",
+    lat: 11.1196,
+    lon: -74.2306,
+    alt: 4,
+  },
+  // --- Rios del norte (cuencas vecinas) ---
+  {
+    id: "rio-piedras",
+    name: "Rio Piedras",
+    basin: "Piedras",
+    zone: "Norte - cuenca vecina",
+    lat: 11.3,
+    lon: -74.13,
+    alt: 50,
+  },
+  {
+    id: "guachaca",
+    name: "Guachaca",
+    basin: "Guachaca",
+    zone: "Norte rural",
+    lat: 11.23,
+    lon: -73.9,
+    alt: 20,
+  },
+  {
+    id: "bahia-santa-marta",
+    name: "Bahia de Santa Marta (marina)",
+    basin: "Costera",
+    zone: "Costa urbana",
+    lat: 11.248,
+    lon: -74.216,
+    alt: 1,
+  },
+];
