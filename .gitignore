@@ -28,3 +28,6 @@ npm-debug.log*
 
 # Claude Code (configuración local)
 .claude/
+
+# Ejemplo de solución (no debe versionarse, es la referencia del taller)
+/ejemplo-dashboard-vue/
