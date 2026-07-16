@@ -66,5 +66,36 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  gateway:
+    build:
+      context: ./gateway
+    environment:
+      FROST_URL: http://web:8080/FROST-Server/v1.1
+      FROST_MQTT_URL: mqtt://web:1883
+      PORT: 3001
+      WS_PATH: /ws
+      MQTT_CLIENT_ID: frost-visualization-gateway
+      CATALOG_REFRESH_MS: 30000
+      LOG_LEVEL: info
+    ports:
+      - 3001:3001
+    depends_on:
+      database:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+      simulator:
+        condition: service_started
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          node -e "fetch('http://localhost:3001/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+
 volumes:
     postgis_volume:
