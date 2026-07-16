@@ -89,8 +89,14 @@ Variables de entorno disponibles:
 | `FROST_URL` | `http://localhost:8080/FROST-Server/v1.1` | URL base REST de SensorThings. |
 | `FROST_MQTT_URL` | `mqtt://localhost:1883` | Broker MQTT de FROST. |
 | `MQTT_CLIENT_ID` | `frost-visualization-gateway` | Identificador del cliente MQTT. |
+| `CORS_ORIGIN` | `*` | Origen permitido para clientes HTTP; `*` permite cualquier dominio. |
 | `CATALOG_REFRESH_MS` | `30000` | Periodo de refresco del catálogo; `0` lo desactiva. |
 | `LOG_LEVEL` | `info` | Nivel reservado para filtrado futuro. |
+
+El gateway habilita CORS para que el dashboard pueda ejecutarse en un origen
+distinto, por ejemplo `http://localhost:3000`. El valor predeterminado `*` es
+válido porque este servicio no utiliza cookies ni credenciales. En entornos
+controlados se puede definir `CORS_ORIGIN` con un origen específico.
 
 ## API HTTP
 

@@ -52,7 +52,7 @@ async function main(): Promise<void> {
   const normalizer = new ObservationNormalizer(catalog);
   const realtimeSource = new MqttRealtimeSource(config.frostMqttUrl, config.mqttClientId, logger);
 
-  const httpApp = createHttpApp(realtimeSource, catalog, store);
+  const httpApp = createHttpApp(realtimeSource, catalog, store, config.corsOrigin);
   const wsGateway = new WebSocketGateway(httpApp, config.wsPath, store, logger);
   wsGateway.start();
 

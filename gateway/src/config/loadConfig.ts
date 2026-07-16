@@ -11,6 +11,8 @@ export interface AppConfig {
   /** URL del broker MQTT de FROST. */
   frostMqttUrl: string;
   mqttClientId: string;
+  /** Orígenes autorizados por CORS; `*` permite cualquier dominio. */
+  corsOrigin: string;
   /** Periodo de refresco del catalogo en ms (0 = desactivado). */
   catalogRefreshMs: number;
   logLevel: string;
@@ -39,6 +41,7 @@ export function loadConfig(): AppConfig {
     ),
     frostMqttUrl: process.env.FROST_MQTT_URL ?? process.env.MQTT_URL ?? "mqtt://localhost:1883",
     mqttClientId: process.env.MQTT_CLIENT_ID ?? "frost-visualization-gateway",
+    corsOrigin: process.env.CORS_ORIGIN ?? "*",
     catalogRefreshMs: parseIntEnv("CATALOG_REFRESH_MS", process.env.CATALOG_REFRESH_MS, 30000),
     logLevel: process.env.LOG_LEVEL ?? "info",
   };

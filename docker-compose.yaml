@@ -75,6 +75,7 @@ services:
       PORT: 3001
       WS_PATH: /ws
       MQTT_CLIENT_ID: frost-visualization-gateway
+      CORS_ORIGIN: '*'
       CATALOG_REFRESH_MS: 30000
       LOG_LEVEL: info
     ports:
