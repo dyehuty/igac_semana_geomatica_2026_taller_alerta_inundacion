@@ -9,6 +9,11 @@ services:
       - plugins_modelLoader_enable=true
       - plugins_multiDatastream_enable=false
       - plugins_actuation_enable=false
+      # MQTT TCP existente y MQTT sobre WebSocket para clientes de navegador.
+      - mqtt_Enabled=true
+      - mqtt_Host=0.0.0.0
+      - mqtt_Port=1883
+      - mqtt_WebsocketPort=9876
       - http_cors_enable=true
       - http_cors_allowed_origins=*
       - persistence_db_driver=org.postgresql.Driver
@@ -20,6 +25,7 @@ services:
     ports:
       - 8080:8080
       - 1883:1883
+      - 9876:9876
     depends_on:
       database:
         condition: service_healthy
